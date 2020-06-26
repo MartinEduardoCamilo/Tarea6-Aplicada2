@@ -27,7 +27,7 @@
                                         <InputNumber @bind-Value="ordenes.ordenId" class="form-control col-4" />
                                         <ValidationMessage For="(() => ordenes.ordenId)"></ValidationMessage>
                                         <div class="input-group-append">
-                                            <button type="button" class="btn btn-primary input-group-text" @onclick="Buscar">Buscar</button>
+                                            <button type="button" class="btn btn-primary input-group-text" @onclick="Buscar"><i class="fa fa-search"> Buscar </i></button>
                                         </div>
                                     </div>
                                 </div>
@@ -76,7 +76,7 @@
                                     <div class="input-group">
                                         <InputNumber @bind-Value="AgregarCantidad" class="form-control" />
                                         <div class="input-group-append">
-                                            <button type="button" class="btn btn-info" @onclick="Agregar">Agregar</button>
+                                            <button type="button" class="btn btn-info" @onclick="Agregar"><i class="fa fa-plus"> Agregar </i></button>
                                         </div>
                                     </div>
                                 </div>
@@ -125,9 +125,9 @@
 
                 <div class="card-footer">
                     <div class="form-group text-center" display: inline-block>
-                        <button type="button" class="btn btn-lg btn-secondary" @onclick="Nuevo">Nuevo</button>
-                        <button type="submit" class="btn btn-lg btn-success">Guardar</button>
-                        <button type="button" class="btn btn-lg btn-danger" @onclick="Eliminar">Eliminar</button>
+                        <button type="button" class="btn btn-lg btn-primary" @onclick="Nuevo"><i class="fa fa-plus"> Nuevo </i></button>
+                        <button type="submit" class="btn btn-lg btn-success"><i class="fa fa-save"> Guardar </i></button>
+                        <button type="button" class="btn btn-lg btn-danger" @onclick="Eliminar"><i class="fa fa-trash"> Eliminar </i></button>
                     </div>
                 </div>
 
