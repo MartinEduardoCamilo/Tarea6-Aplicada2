@@ -1,10 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SuplidoresBlazor.BLL;
+using SuplidoresBlazor.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SuplidoresBlazor.BLL.Tests
+namespace SuplidoresB
 {
     [TestClass()]
     public class ProductosBLLTests
@@ -12,13 +13,16 @@ namespace SuplidoresBlazor.BLL.Tests
         [TestMethod()]
         public void BuscarTest()
         {
-            Assert.Fail();
+            var paso = ProductosBLL.Buscar(1);
+            Assert.IsNotNull(paso);
         }
 
         [TestMethod()]
         public void GetListTest()
         {
-            Assert.Fail();
+            var lista = new List<Productos>();
+            lista = ProductosBLL.GetList(p => true);
+            Assert.IsNotNull(lista);
         }
     }
 }

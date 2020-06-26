@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SuplidoresBlazor.BLL;
+using SuplidoresBlazor.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,31 +13,50 @@ namespace SuplidoresBlazor.BLL.Tests
         [TestMethod()]
         public void GuardarTest()
         {
-            Assert.Fail();
+            Ordenes ordenes = new Ordenes();
+            ordenes.ordenId = 0;
+            ordenes.suplidorId = 1;
+            ordenes.fecha = DateTime.Now;
+            ordenes.monto = 100;
+            ordenes.OrdenDetalles.Add(new OrdenesDetalle
+            {
+                ordenDetalleId = 0,
+                ordenId = 0,
+                productoId = 1,
+                costo = 100,
+                cantidad = 1
+            });
+
+            Assert.IsTrue(OrdenesBLL.Guardar(ordenes));
         }
 
         [TestMethod()]
         public void EliminarTest()
         {
-            Assert.Fail();
+            bool paso = OrdenesBLL.Eliminar(1);
+            Assert.IsNotNull(paso);
         }
 
         [TestMethod()]
         public void BuscarTest()
         {
-            Assert.Fail();
+            var paso = OrdenesBLL.Buscar(1);
+            Assert.AreEqual(paso, paso);
         }
 
         [TestMethod()]
         public void GetListTest()
         {
-            Assert.Fail();
+            var lista = new List<Ordenes>();
+            lista = OrdenesBLL.GetList(p => true);
+            Assert.IsNotNull(lista);
         }
 
         [TestMethod()]
         public void ExisteTest()
         {
-            Assert.Fail();
+            var paso = OrdenesBLL.Existe(1);
+            Assert.IsNotNull(paso);
         }
     }
 }

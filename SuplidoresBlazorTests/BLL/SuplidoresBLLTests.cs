@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SuplidoresBlazor.BLL;
+using SuplidoresBlazor.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,7 +13,9 @@ namespace SuplidoresBlazor.BLL.Tests
         [TestMethod()]
         public void GetListTest()
         {
-            Assert.Fail();
+            var lista = new List<Suplidores>();
+            lista = SuplidoresBLL.GetList(p => true);
+            Assert.IsNotNull(lista);
         }
     }
 }
