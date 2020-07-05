@@ -87,23 +87,21 @@
                         <div class="table-responsive text-nowrap">
                             <table class="table table-striped">
                                 <thead class="thead-light">
-                                    <tr>
-                                        <th>Id</th>
-                                        <th>Orden Id</th>
-                                        <th>Producto Id</th>
+                                    <tr>             
                                         <th>Cantidad</th>
                                         <th>Costo</th>
+                                        <th>Descripción</th>
+                                        <th>Importe</th>
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white">
                                     @foreach (var item in ordenes.OrdenDetalles)
                                     {
-                                        <tr>
-                                            <td>@item.ordenDetalleId</td>
-                                            <td>@item.ordenId</td>
-                                            <td>@item.productoId</td>
+                                        <tr>                                        
                                             <td>@item.cantidad</td>
                                             <td>@item.costo</td>
+                                            <td>@item.Descripcion</td>
+                                            <td>@item.Importe</td>
                                             <td><button type="button" class="btn btn-outline-danger" @onclick="(() => EliminarOrdenDetalle(item))">Remover</button></td>
                                         </tr>
                                     }
@@ -256,10 +254,11 @@
             this.ordenes.OrdenDetalles.Add(new OrdenesDetalle
             {
                 ordenDetalleId = 0,
-                ordenId = ordenes.ordenId,
                 productoId = SeleccionarProducto,
                 costo = Costo,
-                cantidad = AgregarCantidad
+                cantidad = AgregarCantidad,
+                Descripcion = ProductosBLL.Buscar(SeleccionarProducto).descripcion,
+                Importe = Convert.ToDecimal(Costo * AgregarCantidad)
             });
 
             SeleccionarProducto = 0;

@@ -9,7 +9,7 @@ using SuplidoresBlazor.DAL;
 namespace SuplidoresBlazor.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20200626114705_Inicio")]
+    [Migration("20200705043256_Inicio")]
     partial class Inicio
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -44,13 +44,19 @@ namespace SuplidoresBlazor.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Descripcion")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Importe")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("cantidad")
                         .HasColumnType("INTEGER");
 
                     b.Property<decimal>("costo")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("ordenId")
+                    b.Property<int?>("ordenId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("productoId")
@@ -129,9 +135,7 @@ namespace SuplidoresBlazor.Migrations
                 {
                     b.HasOne("SuplidoresBlazor.Models.Ordenes", null)
                         .WithMany("OrdenDetalles")
-                        .HasForeignKey("ordenId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ordenId");
                 });
 #pragma warning restore 612, 618
         }

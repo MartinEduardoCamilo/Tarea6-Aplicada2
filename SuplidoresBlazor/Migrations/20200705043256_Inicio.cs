@@ -56,10 +56,12 @@ namespace SuplidoresBlazor.Migrations
                 {
                     ordenDetalleId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    ordenId = table.Column<int>(nullable: false),
                     productoId = table.Column<int>(nullable: false),
                     cantidad = table.Column<int>(nullable: false),
-                    costo = table.Column<decimal>(nullable: false)
+                    costo = table.Column<decimal>(nullable: false),
+                    Descripcion = table.Column<string>(nullable: true),
+                    Importe = table.Column<decimal>(nullable: false),
+                    ordenId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -69,7 +71,7 @@ namespace SuplidoresBlazor.Migrations
                         column: x => x.ordenId,
                         principalTable: "Ordenes",
                         principalColumn: "ordenId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.InsertData(

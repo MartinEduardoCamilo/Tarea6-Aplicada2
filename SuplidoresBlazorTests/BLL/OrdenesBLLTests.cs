@@ -21,9 +21,10 @@ namespace SuplidoresBlazor.BLL.Tests
             ordenes.OrdenDetalles.Add(new OrdenesDetalle
             {
                 ordenDetalleId = 0,
-                ordenId = 0,
                 productoId = 1,
                 costo = 100,
+                Importe = 200,
+                Descripcion ="cacao",
                 cantidad = 1
             });
 

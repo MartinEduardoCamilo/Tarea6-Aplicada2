@@ -42,13 +42,19 @@ namespace SuplidoresBlazor.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Descripcion")
+                        .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Importe")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("cantidad")
                         .HasColumnType("INTEGER");
 
                     b.Property<decimal>("costo")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("ordenId")
+                    b.Property<int?>("ordenId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("productoId")
@@ -127,9 +133,7 @@ namespace SuplidoresBlazor.Migrations
                 {
                     b.HasOne("SuplidoresBlazor.Models.Ordenes", null)
                         .WithMany("OrdenDetalles")
-                        .HasForeignKey("ordenId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ordenId");
                 });
 #pragma warning restore 612, 618
         }
